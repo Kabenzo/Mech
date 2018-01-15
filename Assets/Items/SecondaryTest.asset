@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e2a1d8a1e36fe4ca0d7159145d6931, type: 3}
+  m_Name: SecondaryTest
+  m_EditorClassIdentifier: 
+  name: Green Gun That Is Green
+  description: This is a test weapon
+  icon: {fileID: 0}
+  projectile: {fileID: 1839153983437994, guid: 949200a5399144e45a8f3ca15bec1cc8, type: 2}
+  damage: 3
+  weaponID: 0
+  fireRate: 0.05
+  fireSpeed: 2000
+  turnSpeed: 5
+  ammo: 200

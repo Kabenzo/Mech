@@ -5,37 +5,72 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour {
 
-	PlayerManager playerManager;
+	public PlayerManager playerManager;
+	public Item primaryWeapon;
+	public Item secondaryWeapon;
 
 	//Ship Stats
 	float PHealth;
 	float PSpeed;
-	float PFuel;
 	float PRotSpeed;
 	float PMaxSpeed;
 	float PAccel;
-	float PMaxFuel;
+	float PAmmo;
+	float SAmmo;
 
-	float currentSpeed;
+	public float currentSpeed;
 
 	//UI Elements
 	public Text text;
-	public Text fuel;
 	public Text health;
+	public Text pAmmo;
 
 	Rigidbody2D rbody;
+
+	//Other
+	public bool isShooting = false;
+	public Attack attack;
+
+	//Weapon
+	public GameObject primaryProjectile;
+	public GameObject secondaryProjectile;
+	public float PrimaryFireRate;
+	public float SecondaryFireRate;
+	public float PrimaryFireSpeed;
+	public float SecondaryFireSpeed;
+
+	public Transform leftHand;
+	public Transform rightHand;
+
+
 
 	void Start () {
 		playerManager = GameObject.Find ("PlayerManager").GetComponent<PlayerManager> ();
 		rbody = GetComponent<Rigidbody2D> ();
+		attack = GetComponent<Attack> ();
 
+		primaryWeapon = playerManager.leftWeapon;
+		secondaryWeapon = playerManager.rightWeapon;
+
+		//Stats
 		PHealth = playerManager.health;
 		PSpeed = playerManager.speed;
-		PFuel = playerManager.fuel;
 		PRotSpeed = playerManager.rotSpeed;
 		PMaxSpeed = playerManager.maxSpeed;
 		PAccel = playerManager.acceleration;
-		PMaxFuel = playerManager.maxFuel;
+		PAmmo = primaryWeapon.ammo;
+		SAmmo = secondaryWeapon.ammo;
+
+	
+
+		//Weapons
+		primaryProjectile = primaryWeapon.projectile;
+		secondaryProjectile = secondaryWeapon.projectile;
+		PrimaryFireSpeed = primaryWeapon.fireSpeed;
+		PrimaryFireRate = primaryWeapon.fireRate;
+		SecondaryFireSpeed = secondaryWeapon.fireSpeed;
+		SecondaryFireRate = secondaryWeapon.fireRate;
+
 	}
 	
 
@@ -49,32 +84,65 @@ public class PlayerMovement : MonoBehaviour {
 		transform.rotation = rot;
 
 		//Speed Manager
+		 
 
+		currentSpeed = PSpeed * Input.GetAxis ("Vertical");
+		currentSpeed = Mathf.Clamp (currentSpeed, -PMaxSpeed, PMaxSpeed); 
 
-		if (Input.GetKey (KeyCode.W)) {
-			currentSpeed += PAccel * Time.deltaTime;
-		}
-
-		if (Input.GetKey (KeyCode.S)) {
-			currentSpeed-= PAccel * Time.deltaTime;
-		}
-		currentSpeed = Mathf.Clamp (currentSpeed, 0f, PMaxSpeed); 
-
-
-		//Forward Speed
-		if (PFuel > 0) {
-			rbody.AddForce (transform.up * PSpeed * currentSpeed);
-		}
-
-		//Fuel Manager
-		PFuel = PFuel - currentSpeed * Time.deltaTime;
-		PFuel = Mathf.Clamp (PFuel, 0f, PMaxFuel); 
-
+		//Ammo Clamp
+		PAmmo = Mathf.Clamp (PAmmo,0f, primaryWeapon.ammo);
+		SAmmo = Mathf.Clamp (SAmmo,0f, secondaryWeapon.ammo);
 
 		//UI
 		text.text = "Speed: " + currentSpeed.ToString();
-		fuel.text = "Fuel: " + PFuel.ToString ();
 		health.text = "Health: " + PHealth.ToString ();
+
+		if (attack.currentGunId == 1) {
+			pAmmo.text = primaryWeapon.name + ": " + PAmmo.ToString ();
+		}
+
+		if (attack.currentGunId == 2) {
+			pAmmo.text = secondaryWeapon.name + ": " + SAmmo.ToString ();
+
+		}
+
+	
+	}
+
+	void FixedUpdate () {
+		//Forward Speed
+			rbody.AddForce (transform.up * currentSpeed);
 		
+
+	}
+
+	public IEnumerator UseAttack () {
+		//There is a bug, where when two guns have slow fire rate and you spam them, occasionally one gun will fire twice
+
+		if (isShooting == false) {
+			isShooting = true;
+
+			//Fire Primary Weapon
+			if (attack.currentGunId == 1 && PAmmo > 0)  {
+				GameObject bullet = Instantiate (primaryProjectile, leftHand.position, leftHand.rotation);
+				bullet.GetComponent<Rigidbody2D> ().AddForce (bullet.transform.up * PrimaryFireSpeed);
+				yield return new WaitForSeconds (PrimaryFireRate);
+				PAmmo--;
+				isShooting = false;
+			}
+			//Fire Secondary Weapon
+			if (attack.currentGunId == 2 && SAmmo > 0) {
+				GameObject bullet = Instantiate (secondaryProjectile, rightHand.position, rightHand.rotation);
+				bullet.GetComponent<Rigidbody2D> ().AddForce (bullet.transform.up * SecondaryFireSpeed);
+				yield return new WaitForSeconds (SecondaryFireRate);
+				SAmmo--;
+				isShooting = false;
+			} else if (isShooting == true) {
+				isShooting = false;
+			}
+
+
+
+		}
 	}
 }
