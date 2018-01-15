@@ -198,6 +198,8 @@ GameObject:
   - component: {fileID: 487994370}
   - component: {fileID: 487994369}
   - component: {fileID: 487994368}
+  - component: {fileID: 487994373}
+  - component: {fileID: 487994372}
   m_Layer: 0
   m_Name: Test Enemy (2)
   m_TagString: Enemy
@@ -297,6 +299,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &487994372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 487994367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8740004daf03a43279da9d16d678014a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+--- !u!114 &487994373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 487994367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e9f9609f34fa4cbe83665df92d28818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1170214550}
+  range: 100
+  turnSpeed: 5
+  fireRate: 1
+  shootForce: 5
+  bullet: {fileID: 0}
+  firePoint: {fileID: 0}
+  ammo: 30
+  speed: 5
+  enemyTag: B
 --- !u!1 &496288980
 GameObject:
   m_ObjectHideFlags: 0
@@ -928,6 +963,8 @@ GameObject:
   - component: {fileID: 1217271464}
   - component: {fileID: 1217271463}
   - component: {fileID: 1217271462}
+  - component: {fileID: 1217271467}
+  - component: {fileID: 1217271466}
   m_Layer: 0
   m_Name: Test Enemy (3)
   m_TagString: Enemy
@@ -1027,6 +1064,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1217271466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1217271461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8740004daf03a43279da9d16d678014a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+--- !u!114 &1217271467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1217271461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e9f9609f34fa4cbe83665df92d28818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1170214550}
+  range: 100
+  turnSpeed: 5
+  fireRate: 1
+  shootForce: 5
+  bullet: {fileID: 0}
+  firePoint: {fileID: 0}
+  ammo: 30
+  speed: 5
+  enemyTag: B
 --- !u!1 &1249497773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,6 +1391,8 @@ GameObject:
   - component: {fileID: 1774739927}
   - component: {fileID: 1774739926}
   - component: {fileID: 1774739925}
+  - component: {fileID: 1774739930}
+  - component: {fileID: 1774739929}
   m_Layer: 0
   m_Name: Test Enemy (4)
   m_TagString: Enemy
@@ -1420,6 +1492,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1774739929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1774739924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8740004daf03a43279da9d16d678014a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+--- !u!114 &1774739930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1774739924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e9f9609f34fa4cbe83665df92d28818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1170214550}
+  range: 100
+  turnSpeed: 5
+  fireRate: 1
+  shootForce: 5
+  bullet: {fileID: 0}
+  firePoint: {fileID: 0}
+  ammo: 30
+  speed: 5
+  enemyTag: B
 --- !u!1 &1812971920
 GameObject:
   m_ObjectHideFlags: 0
@@ -1631,6 +1736,8 @@ GameObject:
   - component: {fileID: 1965052678}
   - component: {fileID: 1965052677}
   - component: {fileID: 1965052676}
+  - component: {fileID: 1965052681}
+  - component: {fileID: 1965052680}
   m_Layer: 0
   m_Name: Test Enemy (1)
   m_TagString: Enemy
@@ -1730,6 +1837,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1965052680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1965052675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8740004daf03a43279da9d16d678014a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+--- !u!114 &1965052681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1965052675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e9f9609f34fa4cbe83665df92d28818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1170214550}
+  range: 100
+  turnSpeed: 5
+  fireRate: 1
+  shootForce: 5
+  bullet: {fileID: 0}
+  firePoint: {fileID: 0}
+  ammo: 30
+  speed: 5
+  enemyTag: B
 --- !u!1 &1992218712
 GameObject:
   m_ObjectHideFlags: 0
