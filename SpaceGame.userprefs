@@ -1,16 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\OldScripts\Scripts\EnemyHealthManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayerManager.cs" Line="8" Column="26" />
-      <File FileName="Assets\Scripts\PlayerMovement.cs" Line="53" Column="47" />
-      <File FileName="Assets\Scripts\MultipleTargetCamera.cs" Line="39" Column="3" />
+      <File FileName="Assets\Scripts\PlayerManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\MultipleTargetCamera.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Radar.cs" Line="1" Column="1" />
       <File FileName="Assets\OldScripts\Scripts\EnemyFollow.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Item.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Attack.cs" Line="25" Column="5" />
+      <File FileName="Assets\Scripts\Attack.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\CrossHairBehav.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\GunAim.cs" Line="1" Column="1" />
+      <File FileName="Assets\OldScripts\Scripts\EnemyHealthManager.cs" Line="25" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
