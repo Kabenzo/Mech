@@ -42,6 +42,8 @@ public class PlayerMovement : MonoBehaviour {
 	public Transform leftHand;
 	public Transform rightHand;
 
+	Vector3 speed;
+
 
 
 	void Start () {
@@ -75,19 +77,9 @@ public class PlayerMovement : MonoBehaviour {
 	
 
 	void Update () {
-		
-		//Rotation
-		Quaternion rot = transform.rotation;
-		float z = rot.eulerAngles.z;
-		z -= Input.GetAxis ("Horizontal") * PRotSpeed * Time.deltaTime;
-		rot = Quaternion.Euler (0, 0, z);
-		transform.rotation = rot;
 
 		//Speed Manager
-		 
-
-		currentSpeed = PSpeed * Input.GetAxis ("Vertical");
-		currentSpeed = Mathf.Clamp (currentSpeed, -PMaxSpeed, PMaxSpeed); 
+		speed = new Vector3 (Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"));
 
 		//Ammo Clamp
 		PAmmo = Mathf.Clamp (PAmmo,0f, primaryWeapon.ammo);
@@ -110,8 +102,8 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		//Forward Speed
-			rbody.AddForce (transform.up * currentSpeed);
+	//Forward Speed
+		rbody.AddForce (speed * PSpeed);
 		
 
 	}
@@ -131,6 +123,7 @@ public class PlayerMovement : MonoBehaviour {
 				isShooting = false;
 			}
 			//Fire Secondary Weapon
+			
 			if (attack.currentGunId == 2 && SAmmo > 0) {
 				GameObject bullet = Instantiate (secondaryProjectile, rightHand.position, rightHand.rotation);
 				bullet.GetComponent<Rigidbody2D> ().AddForce (bullet.transform.up * SecondaryFireSpeed);
