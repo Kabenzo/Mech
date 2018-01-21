@@ -12,9 +12,6 @@ public class PlayerMovement : MonoBehaviour {
 	//Ship Stats
 	float PHealth;
 	float PSpeed;
-	float PRotSpeed;
-	float PMaxSpeed;
-	float PAccel;
 	float PAmmo;
 	float SAmmo;
 
@@ -57,9 +54,6 @@ public class PlayerMovement : MonoBehaviour {
 		//Stats
 		PHealth = playerManager.health;
 		PSpeed = playerManager.speed;
-		PRotSpeed = playerManager.rotSpeed;
-		PMaxSpeed = playerManager.maxSpeed;
-		PAccel = playerManager.acceleration;
 		PAmmo = primaryWeapon.ammo;
 		SAmmo = secondaryWeapon.ammo;
 
