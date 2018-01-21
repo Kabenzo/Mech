@@ -5,7 +5,7 @@ using UnityEngine;
 public class GunAim : MonoBehaviour {
 
 	Transform target;
-	float turnSpeed = 10f;
+	float turnSpeed = 3f;
 	//public Item primaryItem;
 
 
